@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:form>    
+        <p:menubar>
+            <p:submenu label="Clientes" icon="ui-icon-document">
+                <p:menuitem value="Adicionar" 
+                            action="#{clienteMB.montarSalvar}" 
+                            icon="ui-icon-disk"/>
+                <p:menuitem value="Listar" outcome="ClienteListar"
+                            icon="ui-icon-search" />
+            </p:submenu>
+
+            <p:submenu label="Vendas" icon="ui-icon-document">
+                <p:menuitem value="Adicionar" action="#{vendaMB.montarSalvar}" 
+                            icon="ui-icon-disk"/>
+                <p:menuitem value="Listar" outcome="VendaListar" 
+                            icon="ui-icon-search" />
+            </p:submenu>   
+            
+            <p:submenu label="Fornecedores" icon="ui-icon-document">
+                <p:menuitem value="Adicionar" 
+                            action="#{fornecedorMB.montarSalvar}" 
+                            icon="ui-icon-disk"/>
+                <p:menuitem value="Listar" outcome="FornecedorListar"
+                            icon="ui-icon-search" />
+            </p:submenu>
+            
+            <p:submenu label="Compras" icon="ui-icon-document">
+                <p:menuitem value="Adicionar" 
+                            action="#{compraMB.montarSalvar}" 
+                            icon="ui-icon-disk"/>
+                <p:menuitem value="Listar" outcome="CompraListar"
+                            icon="ui-icon-search" />
+            </p:submenu>
+
+        </p:menubar>
+    </h:form>  
+</html>

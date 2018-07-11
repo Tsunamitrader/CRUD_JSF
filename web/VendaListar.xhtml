@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Projeto JSF</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menu.xhtml"/>
+        <input type="hidden" value="#{vendaMB.recuperarClientes()}"
+               name="CarregarClientes"/>
+        <p:panel header="Listar Vendas">        
+            <h:form>
+                <p:dataTable id="Venda" value="#{vendaMB.vendas}" 
+                             var="venda" paginator="true" rows="10"
+                             paginatorTemplate="{CurrentPageReport}
+                             {FirstPageLink} {PreviousPageLink} 
+                             {PageLinks} {NextPageLink}
+                             {LastPageLink} {RowsPerPageDropdown}"
+                             >
+                    
+                    
+
+                     <p:column sortBy="#{venda.cliente.nome}" 
+                              filterBy="#{venda.cliente.nome}"
+                              filterMatchMode="contains" headerText="Cliente">
+
+                        <h:outputText value="#{venda.cliente.nome}"/>
+
+                    </p:column>
+
+                      <p:column sortBy="#{venda.valor}" 
+                              filterBy="#{venda.valor}"
+                              filterMatchMode="contains" headerText="Valor">
+
+                        <h:outputText value="#{venda.valor}"/>
+
+                    </p:column> 
+
+                
+
+                    <p:column>
+                        <h:commandLink action="#{vendaMB.montarAlterar}"
+                                       value="Alterar">
+                        </h:commandLink>
+                        <br/>
+                        <h:commandLink action="#{vendaMB.montarExcluir}"
+                                       value="Excluir">
+                        </h:commandLink>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+
+    </h:body>
+</html>
+

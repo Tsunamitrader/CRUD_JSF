@@ -1,0 +1,36 @@
+Create database trabalho;
+
+
+
+create table cliente(
+id_cliente serial,
+nome varchar(40),
+cpf integer,
+constraint pk_id_cliente primary key (id_cliente)
+); 
+
+create table venda(
+id_venda serial,
+valor numeric,
+vencimento timestamp,
+cliente integer,
+constraint pk_id_compra primary key (id_venda),
+constraint fk_cliente_venda foreign key(cliente) references cliente(id_cliente)
+);
+ 
+
+create table fornecedor(
+id_fornecedor serial,
+nome varchar(40),
+cnpj integer,
+constraint pk_id_fornecedor primary key (id_fornecedor)
+); 
+
+create table compra(
+id_compra serial,
+valor numeric,
+vencimento timestamp,
+fornecedor integer,
+constraint pk_compra primary key (id_compra),
+constraint fk_fornecedor_compras foreign key(fornecedor) references fornecedor(id_fornecedor)
+);
